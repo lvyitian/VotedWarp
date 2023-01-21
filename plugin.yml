@@ -1,0 +1,93 @@
+name: LocationManager
+author: lvyitian
+version: 0.1
+main: locationmanager.Main
+softdepend: [PlaceholderAPI]
+description: Location Manager with voting feature
+permissions: 
+  locationmanager.*: 
+    description: All Permission
+    children:
+      locationmanager.warp.set: true
+      locationmanager.warp.teleport: true
+      locationmanager.admin: true
+      locationmanager.warplist: true
+      locationmanager.warpinfo: true
+      locationmanager.warp.vote: true
+      locationmanager.warp.edit: true
+      locationmanager.warp.top: true
+  locationmanager.warp.set:
+    description: Gives access to use /setwarp command.
+    default: true
+  locationmanager.warp.teleport:
+    description: Gives access to use /warp command.
+    default: true
+  locationmanager.admin:
+    description: Admin Permission
+    default: op
+  locationmanager.warplist:
+    description: Gives access to use /warplist command.
+    default: true
+  locationmanager.warpinfo:
+    description: Gives access to use /warpinfo command.
+    default: true
+  locationmanager.warp.vote:
+    description: Gives access to use /votewarp command.
+    default: true
+  locationmanager.warp.edit:
+    description: Gives access to edit warps.
+    default: true
+    locationmanager.warp.top:
+    description: Gives access to edit warps.
+    default: true
+commands:
+  setwarp: 
+   description: "You know"
+   usage: /setwarp <name> [author1,author2,...] [description]
+   permission: locationmanager.warp.set
+   perimission-message: "No Enough Permission"
+  warp: 
+    description: "You know"
+    usage: /warp <name>
+    permission: locationmanager.warp.teleport
+    perimission-message: "No Enough Permission"
+  locationmanager:
+    description: "Admin Command"
+    usage: /locationmanager <ChildCommand>
+    permission: locationmanager.admin
+    permission-message: "No Enough Permission"
+  warplist:
+    description: "You know"
+    usage: /warplist [page]
+    permission: locationmanager.warplist
+    permission-message: "No Enough Permission"
+  warpinfo:
+    description: "You know"
+    usage: /warpinfo <name>
+    permission: locationmanager.warpinfo
+    permission-message: "No Enough Permission"
+  delwarp:
+    description: "You know"
+    usage: /delwarp <name>
+  votewarp:
+    description: "You know"
+    usage: /votewarp <name>
+    permission: locationmanager.warp.vote
+    permission-message: "No Enough Permission"
+  warpdesc:
+    description: "Set description of warp"
+    usage: /warpdesc <name> [description]
+  warpauthors:
+    description: "Set authors of warp"
+    usage: /warpauthors <name> [author1,author2,...]
+  addwarpauthors:
+    description: "Add authors of warp"
+    usage: /addwarpauthors <name> <author1,author2,...>
+  delwarpauthors:
+    description: "Delete authors of warp"
+    usage: /delwarpauthors <name> <author1,author2,...>
+  topwarps:
+    description: "List top warps"
+    usage: /topwarps [num]
+    permission: locationmanager.warp.top
+    permission-message: "No Enough Permission"
