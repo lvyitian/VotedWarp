@@ -178,9 +178,12 @@ public class Main extends JavaPlugin implements Listener{
     				  }
     			  }
     			  StringBuilder desc=new StringBuilder("");
-    			  for(int i=2;i<args.length;i++)
-    			    desc.append(args[i]+" ");
-    			  desc=new StringBuilder(desc.substring(0, desc.length()-1)); 
+    			  if(args.length>2)
+    			  {
+    				  for(int i=2;i<args.length;i++)
+    	    		    desc.append(args[i]+" ");
+    	    		  desc=new StringBuilder(desc.substring(0, desc.length()-1)); 
+    			  }
         		  ArrayList<Double> templ=new ArrayList<Double>();
         		  templ.add(Player.class.cast(sender).getLocation().getX());
         		  templ.add(Player.class.cast(sender).getLocation().getY());
