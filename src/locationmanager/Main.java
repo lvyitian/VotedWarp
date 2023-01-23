@@ -3,6 +3,7 @@ package locationmanager;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -68,7 +69,7 @@ public class Main extends JavaPlugin implements Listener{
     	  try {
           new File(new File(configFileLocation).getParent()).mkdirs();
     	  new File(configFileLocation).createNewFile();
-    	  config=parseJson(new String(readFile(new File(configFileLocation)),"GBK"));
+    	  config=parseJson(new String(readFile(new File(configFileLocation)),StandardCharsets.UTF_8));
     	  if(config==null)
     		  config=new Config();
     	  Bukkit.getPluginManager().registerEvents(this, this);
@@ -594,10 +595,10 @@ public class Main extends JavaPlugin implements Listener{
       }
       public boolean saveMyConfig() throws Throwable
       {
-    	  return writeFile(new File(configFileLocation), toJsonString(config).getBytes());
+    	  return writeFile(new File(configFileLocation), toJsonString(config).getBytes(StandardCharsets.UTF_8));
       }
       public void reloadMyConfig() throws Throwable
       {
-    	  this.config=parseJson(new String(readFile(new File(configFileLocation)),"GBK"));
+    	  this.config=parseJson(new String(readFile(new File(configFileLocation)),StandardCharsets.UTF_8));
       }
 }

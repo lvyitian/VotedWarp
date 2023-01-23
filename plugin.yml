@@ -1,6 +1,6 @@
 name: LocationManager
 author: lvyitian
-version: 0.1
+version: 0.2
 main: locationmanager.Main
 softdepend: [PlaceholderAPI]
 description: Location Manager with voting feature
